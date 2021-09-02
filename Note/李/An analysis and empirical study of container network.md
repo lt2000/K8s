@@ -46,4 +46,4 @@
 * overlay network
 * routing
 
-![image-20210902200901132](Github/K8s/Note/李/image/image-20210902200901132.png)
+![image-20210902200901132](image/image-20210902200901132.png)
