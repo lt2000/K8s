@@ -35,7 +35,7 @@
 
 * host mode
 
-  <img src="\Github\K8s\Note\李\image\image-20210902200608526.png" alt="image-20210902200608526" style="zoom:67%;" />
+  <img src="image/image-20210902200608526.png" alt="image-20210902200608526" style="zoom:67%;" />
   
   <img src="Github\K8s\Note\李\image\image-20210902200634053.png" alt="image-20210902200634053" style="zoom:150%;" />
 
