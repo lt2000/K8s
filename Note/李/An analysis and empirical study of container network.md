@@ -1,6 +1,14 @@
-# Contributions
+# Contributions？
 
+> Three finding 
 
+* 在单个主机上的容器网络中，**性能和安全隔离是一个困难的权衡**.通过共享相同的网络名称空间可以获得良好的性能，而通过使用隔离的名称空间可以加强安全性
+* 多主机容器网络在选择网络方案时面临困难的权衡。
+  * overlay 网络包处理带来较大开销；但在网络管理上更加灵活安全
+  * NAT网络性能高，但安全性低
+  * 路由网路性能高但需要额外的设备支持（BGP）
+* 虚拟化会带来吞吐率下降和延迟增加。容器网络和虚拟机网络之间复杂的交互
+* 集装箱网络在启动时间上有一个数量级的差异。在选择容器网络时，短时间且对延迟敏感的工作负载应该考虑启动时间
 
 # Why Container?
 
@@ -21,7 +29,7 @@
 
 * 容器的安全隔离性低于虚拟机
 
-# Solution
+# Solution？
 
 ## single host network
 
@@ -41,9 +49,43 @@
 
 ## multi host network
 
+> providing IP addressing
+
 * host mode
 * NAT
+  * 方案：container IP address = host IP + port num
+  * 每个包都需要地址转换，会导致性能下降
+  * 在由生命周期短的容器组成的动态网络中，端口冲突是个问题（**安全性**）
 * overlay network
+  * 方案：容器将其私有IP地址和主机IP之间的映射保存在键-值(KV)存储中，所有主机都可以访问该存储，**将容器IP和其物理位置解耦**
+  * 包处理过程、改变 数据包大小
 * routing
+  * 方案：它在主机内核中实现了一个虚拟路由器并使用用于分组路由的BGP
+  * 支持网络协议有限
+  * BGP在大部分网络中心未被支持
+  * 路由表的大小限制了容器网络的规模
 
 ![image-20210902200901132](image/image-20210902200901132.png)
+
+# Experiment？
+
+> 影响因子
+
+## packet size
+
+* 对overlay**网络数据包越大封装时间越长**
+
+## network protocol
+
+## impact of virtualization
+
+## interference
+
+## CPU overhead
+
+## scalability
+
+## network launch time
+
+
+
