@@ -71,3 +71,19 @@
 * Resource Central: Understanding and Predicting Workloads for Improved Resource Management in Large Cloud Platforms 2017
   https://dl.acm.org/doi/10.1145/3132747.3132772
 
+## 补录
+
+RPC和网络IO优化 
+
+* µTune: Auto-Tuned Threading for OLDI Microservices（OSDI'18）
+  微服务/Serverless的通信依赖RPC，涉及到大量的网络IO，网络IO处理效率会严重影响尾延迟大小。本文综合不同的线程处理模型（同步/异步；内联/派发；阻塞/忙等）来提供高性能的IO处理。
+* RPCValet: NI-Driven Tail-Aware Balancing of μs-Scale RPCs（ASPLOS'19）
+  基于新硬件（如SmartNIC）和新协议（如RDMA）对RPC处理流程进行优化。
+* Dagger: Efficient and Fast RPCs in Cloud Microservices with Near-Memory Reconfigurable NICs（ASPLOS'21）
+  利用FPGA和RDMA offload RPC。
+* R2P2：Making RPCs first-class datacenter citizens
+  设计基于UDP的传输层协议R2P2来代替RPC使用的TCP协议。
+* TAS: TCP Acceleration as an OS Service（EuroSys'19）
+  将执行RPC的TCP请求交给特定的一组CPU快速处理。
+* Parallelizing Packet Processing in Container Overlay Networks（EuroSys'21）
+  Overlay网络包并行处理
