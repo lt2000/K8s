@@ -73,7 +73,7 @@
 
 ## packet size
 
-* ![4](D:\Github\K8s\Note\李\image\4.png)
+* ![4](F:\Github\K8s\Note\李\image\4.png)
 * 对overlay**网络数据包越大封装时间越长**
 
 * 两个问题？
@@ -84,7 +84,7 @@
 
 ## network protocol
 
-* ![5](D:\Github\K8s\Note\李\image\5.png)
+* ![5](F:\Github\K8s\Note\李\image\5.png)
 * 在包括基线在内的所有网络中，TCP实现了比UDP更高的吞吐量
   * TCP采用滑动窗口避免网络拥塞，动态改变数据发送速率
   * 采用Nagle‘s算法，提高链路效率
@@ -94,7 +94,7 @@
 
 ## network launch time
 
-* ![6](D:\Github\K8s\Note\李\image\6.png)
+* ![6](F:\Github\K8s\Note\李\image\6.png)
 * 建立容器网络的时间对于短期的或对延迟敏感的工作负载非常重要
 * 启动一个覆盖层或初始化BGP路由表比初始docker映像启动时间长4.5 - 23倍
   * overlay 网络大部分时间花费在向KV存储注册容器
@@ -102,7 +102,7 @@
 
 ## interference
 
-* ![7](D:\Github\K8s\Note\李\image\7.png)
+* ![7](F:\Github\K8s\Note\李\image\7.png)
 * 容器网络整合度高，容器的抗干扰性需要考虑
 * 容器网络通常包括一个用于管理网络流的用户空间守护进程和一个用于路由或包封装的内核组件
 * 用户空间守护进程很容易因干扰而变慢，而内核组件却能承受这种影响，因为内核内处理的优先级严格高于任何用户级计算，Calico (BGP)，实现内核虚拟路由器，而overlay网络采用用户空间守护进程，**因此BGP网络比overlay网络的抗干扰性强**
@@ -110,14 +110,14 @@
 
 ## CPU overhead
 
-* ![8](D:\Github\K8s\Note\李\image\8.png)
+* ![8](F:\Github\K8s\Note\李\image\8.png)
 * Calico (BGP模式)会增加虚拟路由器的计算量，导致CPU开销增加。由于包的封装和解封装，所有覆盖网络消耗更多的CPU
 
 ## scalability
 
-* ![9](D:\Github\K8s\Note\李\image\9.png)
+* ![9](F:\Github\K8s\Note\李\image\9.png)
 * 单个主机上容器网络的可扩展性，**集中式桥接docker0成为了多个容器连接到桥接时的瓶颈。**
-* ![10](D:\Github\K8s\Note\李\image\10.png)
+* ![10](F:\Github\K8s\Note\李\image\10.png)
 * 这表明跨host的overlay网络是扩展的主要瓶颈
 
 ## impact of virtualization
